@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main () {
+// int main () {
   // 1. Convert string to uppercase, lowercase. And also convert characters uppercase who are in lowercase in input and lowercase who are in uppercase in input.
   // Input : abCD
   // Output : 1. ABCD
@@ -318,8 +318,311 @@ int main () {
   */
 
 
+    
 
 
+  // Little Petya loves presents. His mum bought him two strings of the same size for his birthday. The strings consist of uppercase and lowercase Latin letters. Now Petya wants to compare those two strings lexicographically. The letters' case does not matter, that is an uppercase letter is considered equivalent to the corresponding lowercase letter. Help Petya perform the comparison.
+
+  // Input :
+  // Each of the first two lines contains a bought string. The strings' lengths range from 1 to 100 inclusive. It is guaranteed that the strings are of the same length and also consist of uppercase and lowercase Latin letters.
+
+  // Output :
+  // If the first string is less than the second one, print "-1". If the second string is less than the first one, print "1". If the strings are equal, print "0". Note that the letters' case is not taken into consideration when the strings are compared.
+  // Examples
+  // Input :
+  // aaaa
+  // aaaA
+
+  // Output :
+  // 0
+
+  // Input :
+  // abs
+  // Abz
+
+  // Output :
+  // -1
+
+  // Input :
+  // abcdefg
+  // AbCdEfF
+
+  // Output :
+  // 1
+  // Solve :
+  /*
+  string a, b;
+  cin >> a >> b;
+
+  // for lowercase :
+  for (int i = 0; i < a.size(); i++) {
+    if (a[i] >= 'A' && a[i] <= 'Z') {
+      a[i] += 32;
+    }
+
+    if (b[i] >= 'A' && b[i] <= 'Z') {
+      b[i] += 32;
+    }
+  }
+
+  // if (a == b) cout << 0 << endl;
+  // else if (a < b) cout << -1 << endl;
+  // else cout << 1 << endl;
+
+  // Alternative :
+  for (int i = 0; i < a.size(); i++) {
+    if (a[i] == b[i]) {
+      continue;
+    } else if (a[i] < b[i]) {
+      cout << -1 << endl;
+      return 0;
+    } else {
+      cout << 1 << endl;
+      return 0;
+    }
+  }
+  cout << 0 << endl;
+  */
+
+
+
+
+  // Nikita had a word consisting of exactly 3 lowercase Latin letters. The letters in the Latin alphabet are numbered from 1 to 26, where the letter "a" has the index 1, and the letter "z" has the index 26.
+
+  // He encoded this word as the sum of the positions of all the characters in the alphabet. For example, the word "cat" he would encode as the integer 3+1+20=24, because the letter "c" has the index 3 in the alphabet, the letter "a" has the index 1, and the letter "t" has the index 20.
+
+  // However, this encoding turned out to be ambiguous! For example, when encoding the word "ava", the integer 1+22+1=24 is also obtained.
+
+  // Determine the lexicographically smallest word of 3 letters that could have been encoded.
+
+  // A string a is lexicographically smaller than a string b if and only if one of the following holds:
+
+  //     a is a prefix of b, but a≠b;
+  //     in the first position where a and b differ, the string a has a letter that appears earlier in the alphabet than the corresponding letter in b.
+
+  // Input :
+  // The first line of the input contains a single integer t (1≤t≤100) — the number of test cases in the test.
+
+  // This is followed by the descriptions of the test cases.
+
+  // The first and only line of each test case contains an integer n (3≤n≤78) — the encoded word.
+
+  // Output :
+  // For each test case, output the lexicographically smallest three-letter word that could have been encoded on a separate line.
+  // Example
+  // Input :
+  // 5
+  // 24
+  // 70
+  // 3
+  // 55
+  // 48
+
+  // Output :
+  // aav
+  // rzz
+  // aaa
+  // czz
+  // auz
+  // Solve :
+  // string s = "CAT";
+
+  // int sum = 0;
+
+  // for (char c: s) {
+  //   sum += c-'A'+1;   // character theke 'A' - korle 0 pabo, dorkar 1 based character, tai 1 add.
+  // }
+  // cout << sum << endl;
+
+
+  
+
+  
+
+
+  // return 0;
+// }
+
+
+
+void solve () {
+  int sum;
+  cin >> sum;
+
+  // for 3 length :
+  for (char i = 'a'; i <= 'z'; i++) {
+    for (char j = 'a'; j <= 'z'; j++) {
+      for (char k = 'a'; k <= 'z'; k++) {
+        // string s = "";
+        // s += i;
+        // s += j;
+        // s += k;
+
+        // cout << s << " ";
+
+        int x = 0;
+        x += i-'a'+1;
+        x += j-'a'+1;
+        x += k-'a'+1;
+
+        if (x == sum) {
+          cout << i << j << k << endl;
+          return;
+        }
+      }
+    }
+  }
+}
+
+int main () {
+  // Nikita had a word consisting of exactly 3 lowercase Latin letters. The letters in the Latin alphabet are numbered from 1 to 26, where the letter "a" has the index 1, and the letter "z" has the index 26.
+
+  // He encoded this word as the sum of the positions of all the characters in the alphabet. For example, the word "cat" he would encode as the integer 3+1+20=24, because the letter "c" has the index 3 in the alphabet, the letter "a" has the index 1, and the letter "t" has the index 20.
+
+  // However, this encoding turned out to be ambiguous! For example, when encoding the word "ava", the integer 1+22+1=24 is also obtained.
+
+  // Determine the lexicographically smallest word of 3 letters that could have been encoded.
+
+  // A string a is lexicographically smaller than a string b if and only if one of the following holds:
+
+  //     a is a prefix of b, but a≠b;
+  //     in the first position where a and b differ, the string a has a letter that appears earlier in the alphabet than the corresponding letter in b.
+
+  // Input :
+  // The first line of the input contains a single integer t (1≤t≤100) — the number of test cases in the test.
+
+  // This is followed by the descriptions of the test cases.
+
+  // The first and only line of each test case contains an integer n (3≤n≤78) — the encoded word.
+
+  // Output :
+  // For each test case, output the lexicographically smallest three-letter word that could have been encoded on a separate line.
+  // Example
+  // Input :
+  // 5
+  // 24
+  // 70
+  // 3
+  // 55
+  // 48
+
+  // Output :
+  // aav
+  // rzz
+  // aaa
+  // czz
+  // auz
+  // Solve :
+  // string s = "CAT";
+
+  // int sum = 0;
+
+  // for (char c: s) {
+  //   sum += c-'A'+1;   // character theke 'A' - korle 0 pabo, dorkar 1 based character, tai 1 add.
+  // }
+  // cout << sum << endl;
+
+  // int t;
+  // cin >> t;
+
+  // while (t--) {
+  //   solve();
+  // }
+
+
+
+
+  // Permutation :
+  // string s;
+  // cin >> s;
+
+  // cout << next_permutation(s.begin(), s.end()) << endl;
+  // cout << s << endl;
+
+  // All possible permutation for a string :
+  // do {
+  //   cout << s << endl;
+  // } while (next_permutation(s.begin(), s.end()));
+
+
+
+
+  // In this problem you have to find the permutations using the first N English capital letters. Since there can be many permutations, you have to print the first K.
+
+  // Input :
+  // Input starts with an integer T (≤ 100), denoting the number of test cases.
+
+  // Each case contains two integers N, K (1 ≤ N ≤ 26, 1 ≤ K ≤ 30).
+
+  // Output :
+  // For each case, print the case number in a line. Then print the first K permutations that contain the first N English capital letters in alphabetical order. If there are less than K permutations then print all of them.
+  // Sample
+  // Input :	
+  // 2
+  // 3 8
+  // 10 10
+    
+  // Output :
+  // Case 1:
+  // ABC
+  // ACB
+  // BAC
+  // BCA
+  // CAB
+  // CBA
+  // Case 2:
+  // ABCDEFGHIJ
+  // ABCDEFGHJI
+  // ABCDEFGIHJ
+  // ABCDEFGIJH
+  // ABCDEFGJHI
+  // ABCDEFGJIH
+  // ABCDEFHGIJ
+  // ABCDEFHGJI
+  // ABCDEFHIGJ
+  // ABCDEFHIJG
+  // Solve :
+  /*
+  int t;
+  cin >> t;
+
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+
+    string s = "";
+
+    int case_no = 1;
+
+
+    for (int i = 0; i < n; i++) {
+      s += 'A'+i;
+    }
+    // cout << s << endl;
+
+    int count = 0;
+
+    cout << "Case " << case_no++ << ":\n";
+
+    do {
+      cout << s << endl;
+      count++;
+      if (count == k) break;
+    } while (next_permutation(s.begin(), s.end()));
+  }
+  */
+
+
+
+
+  // Puro string input neyar jonno :
+  // string s;
+  // getline(cin, s);
+
+  // cout << s << endl;
+
+
+  
 
 
   return 0;
